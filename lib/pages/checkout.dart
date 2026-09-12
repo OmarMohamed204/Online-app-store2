@@ -1,3 +1,4 @@
+import 'package:loginpages/pages/pay_confirm.dart';
 import 'package:loginpages/provider/cart.dart';
 import 'package:loginpages/shared/appBar.dart';
 import 'package:loginpages/shared/colors.dart';
@@ -26,72 +27,77 @@ class CheckOut extends StatelessWidget {
         actions: [ProductAndPrice()],
       ),
 
-      body: value.selectedItems.isEmpty ? 
-
-      Center(child: Text("No Items Added !!", style: TextStyle(fontSize: 22),))
-       :Column(
-        children: [
-              SizedBox(height: 10,),
-          Center(
-                child: Text(
-                  "Total Added Items { ${value.selectedItems.length} }",
-                  style: TextStyle(fontSize: 22, color: Colors.deepPurple),
+      body: value.selectedItems.isEmpty
+          ? Center(
+              child: Text("No Items Added !!", style: TextStyle(fontSize: 22)),
+            )
+          : Column(
+              children: [
+                SizedBox(height: 10),
+                Center(
+                  child: Text(
+                    "Total Added Items { ${value.selectedItems.length} }",
+                    style: TextStyle(fontSize: 22, color: Colors.deepPurple),
+                  ),
                 ),
-              ),
-              SizedBox(height: 30,),
-          Expanded(
-            child: ListView.builder(
-              itemCount: value.selectedItems.length,
+                SizedBox(height: 30),
+                Expanded(
+                  child: ListView.builder(
+                    itemCount: value.selectedItems.length,
 
-              itemBuilder: (BuildContext context, int index) {
-                return Card(
-                  child: ListTile(
-                    title: Text(value.selectedItems[index].name),
-                    subtitle: Text(
-                      "\$ ${value.selectedItems[index].price} - ${value.selectedItems[index].location}",
-                    ),
+                    itemBuilder: (BuildContext context, int index) {
+                      return Card(
+                        child: ListTile(
+                          title: Text(value.selectedItems[index].name),
+                          subtitle: Text(
+                            "\$ ${value.selectedItems[index].price} - ${value.selectedItems[index].location}",
+                          ),
 
-                    leading: CircleAvatar(
-                      backgroundImage: AssetImage(
-                        value.selectedItems[index].imgPath,
+                          leading: CircleAvatar(
+                            backgroundImage: AssetImage(
+                              value.selectedItems[index].imgPath,
+                            ),
+                          ),
+
+                          trailing: IconButton(
+                            onPressed: () {
+                              value.remove(value.selectedItems[index]);
+                            },
+                            icon: Icon(Icons.remove, color: Colors.red),
+                          ),
+                        ),
+                      );
+                    },
+                  ),
+                ),
+
+                SizedBox(height: 30),
+
+                ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => ConfirmPay()),
+                    );
+                  },
+                  style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.all(BTNpink),
+                    padding: MaterialStateProperty.all(EdgeInsets.all(12)),
+                    shape: MaterialStateProperty.all(
+                      RoundedRectangleBorder(
+                        borderRadius: BorderRadiusGeometry.circular(8),
                       ),
                     ),
-                    
-                    trailing: IconButton(
-                      onPressed: () {
-                        value.remove(value.selectedItems[index]);
-                      },
-                      icon: Icon(Icons.remove, color: Colors.red,),
-                    ),
                   ),
-                );
-              },
-            ),
-          ),
-
-          SizedBox(height: 30),
-
-          ElevatedButton(
-            onPressed: () {},
-            style: ButtonStyle(
-              backgroundColor: MaterialStateProperty.all(BTNpink),
-              padding: MaterialStateProperty.all(EdgeInsets.all(12)),
-              shape: MaterialStateProperty.all(
-                RoundedRectangleBorder(
-                  borderRadius: BorderRadiusGeometry.circular(8),
+                  child: Text(
+                    "Pay \$ ${value.pricee}",
+                    style: TextStyle(fontSize: 19, color: Colors.white),
+                  ),
                 ),
-              ),
-            ),
-            child: Text(
-              "Pay \$ ${value.pricee}",
-              style: TextStyle(fontSize: 19, color: Colors.white),
-            ),
-          ),
 
-          SizedBox(height: 50),
-
-        ],
-      ),
+                SizedBox(height: 50),
+              ],
+            ),
     );
   }
 }
