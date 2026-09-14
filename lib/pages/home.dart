@@ -195,12 +195,15 @@ class _HomeState extends State<Home> {
 
           body: Column(
             children: [
+              SizedBox(height: 7,),
+              
               Padding(
                 padding: EdgeInsets.all(8.0),
                 child: SizedBox(
                   height: 60,
                   child: TextField(
                     controller: searchController,
+                    
                     decoration: InputDecoration(
                       hintText: "Search for a product...",
                       prefix: Icon(Icons.search),
@@ -215,6 +218,7 @@ class _HomeState extends State<Home> {
                         },
                         icon: Icon(Icons.clear),
                       ),
+
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(15),
                       ),
