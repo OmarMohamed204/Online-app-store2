@@ -37,7 +37,8 @@ class _CheckOutState extends State<CheckOut> {
       return;
     }
 
-    if (phoneController.text.trim().length < 11 || phoneController.text.trim().length > 11) {
+    if (phoneController.text.trim().length < 11 ||
+        phoneController.text.trim().length > 11) {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(content: Text("Please enter a valid phone number")),
       );
@@ -81,17 +82,17 @@ class _CheckOutState extends State<CheckOut> {
               child: Text("No Items Added !!", style: TextStyle(fontSize: 22)),
             )
           : SingleChildScrollView(
-            child: Column(
+              child: Column(
                 children: [
                   SizedBox(height: 5),
-            
+
                   Center(
                     child: Text(
                       "Total Added Items { ${value.selectedItems.length} }",
                       style: TextStyle(fontSize: 22, color: Colors.deepPurple),
                     ),
                   ),
-            
+
                   SingleChildScrollView(
                     padding: EdgeInsets.all(16),
                     child: Column(
@@ -99,36 +100,60 @@ class _CheckOutState extends State<CheckOut> {
                         // =========================
                         // PRODUCTS
                         // =========================
-                  
+
                         ListView.builder(
                           shrinkWrap: true,
                           physics: const NeverScrollableScrollPhysics(),
                           itemCount: value.selectedItems.length,
-                  
+
                           itemBuilder: (BuildContext context, int index) {
                             final product = value.selectedItems[index];
-                  
+                            final quantity = value.quantities[index];
+
                             return Card(
                               child: ListTile(
                                 title: Text(product.name),
                                 subtitle: Text(
                                   "\$ ${product.price} - ${product.location}",
                                 ),
-                  
+
                                 leading: CircleAvatar(
                                   backgroundImage: AssetImage(
                                     value.selectedItems[index].imgPath,
                                   ),
                                 ),
-                  
-                                trailing: IconButton(
-                                  onPressed: () {
-                                    value.remove(product);
-                                  },
-                                  icon: Icon(
-                                    Icons.remove_circle,
-                                    color: Colors.red,
-                                  ),
+
+                                trailing: Row(
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: [
+                                    IconButton(
+                                      onPressed: () {
+                                        value.remove(product);
+                                      },
+                                      icon: Icon(
+                                        Icons.remove_circle,
+                                        color: Colors.red,
+                                      ),
+                                    ),
+
+                                    Text(
+                                      '$quantity',
+                                      style: const TextStyle(
+                                        fontSize: 18,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+
+                                    IconButton(
+                                      onPressed: () {
+                                        value.add(product);
+                                      },
+                                      icon: Icon(
+                                        Icons.add_circle,
+                                        color: Colors.green,
+                                      ),
+                                    ),
+                                  ],
                                 ),
                               ),
                             );
@@ -137,7 +162,7 @@ class _CheckOutState extends State<CheckOut> {
                       ],
                     ),
                   ),
-            
+
                   // =========================
                   // CUSTOMER INFORMATION
                   // =========================
@@ -147,13 +172,16 @@ class _CheckOutState extends State<CheckOut> {
                       padding: EdgeInsets.all(8.0),
                       child: Text(
                         "Customer Information",
-                        style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+                        style: TextStyle(
+                          fontSize: 22,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                     ),
                   ),
 
-                  const SizedBox(height: 10,),
-            
+                  const SizedBox(height: 10),
+
                   Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: TextField(
@@ -167,7 +195,7 @@ class _CheckOutState extends State<CheckOut> {
                       ),
                     ),
                   ),
-            
+
                   Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: TextField(
@@ -182,7 +210,7 @@ class _CheckOutState extends State<CheckOut> {
                       ),
                     ),
                   ),
-            
+
                   Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: TextField(
@@ -197,26 +225,28 @@ class _CheckOutState extends State<CheckOut> {
                       ),
                     ),
                   ),
-            
+
                   const SizedBox(height: 25),
-            
+
                   // =========================
                   // PAYMENT METHOD
                   // =========================
-
                   Padding(
                     padding: const EdgeInsets.only(left: 8.0),
                     child: const Align(
                       alignment: Alignment.centerLeft,
                       child: Text(
                         "Payment Method",
-                        style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+                        style: TextStyle(
+                          fontSize: 22,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                     ),
                   ),
-            
+
                   const SizedBox(height: 10),
-            
+
                   RadioListTile<String>(
                     value: "Cash on Delivery",
                     // ignore: deprecated_member_use
@@ -230,7 +260,7 @@ class _CheckOutState extends State<CheckOut> {
                       });
                     },
                   ),
-            
+
                   RadioListTile<String>(
                     value: "online payment",
                     // ignore: deprecated_member_use
@@ -244,9 +274,9 @@ class _CheckOutState extends State<CheckOut> {
                       });
                     },
                   ),
-            
+
                   const SizedBox(height: 20),
-            
+
                   // =========================
                   // TOTAL
                   // =========================
@@ -257,10 +287,10 @@ class _CheckOutState extends State<CheckOut> {
                       // color: Colors.grey.shade200,
                       borderRadius: BorderRadius.circular(12),
                     ),
-            
+
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            
+
                       children: [
                         const Text(
                           "Total",
@@ -269,7 +299,7 @@ class _CheckOutState extends State<CheckOut> {
                             fontWeight: FontWeight.bold,
                           ),
                         ),
-            
+
                         Text(
                           "\$ ${value.pricee}",
                           style: TextStyle(
@@ -281,9 +311,9 @@ class _CheckOutState extends State<CheckOut> {
                       ],
                     ),
                   ),
-            
+
                   const SizedBox(height: 20),
-            
+
                   // =========================
                   // PLACE ORDER
                   // =========================
@@ -312,7 +342,7 @@ class _CheckOutState extends State<CheckOut> {
                   ),
                 ],
               ),
-          ),
+            ),
     );
   }
 }
