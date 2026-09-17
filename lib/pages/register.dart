@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:loginpages/l10n/app_localizations.dart';
 import 'package:loginpages/pages/login.dart';
 import 'package:loginpages/shared/colors.dart';
 import 'package:loginpages/shared/constant.dart';
@@ -15,8 +16,10 @@ class Register extends StatelessWidget {
           child: Padding(
             padding: const EdgeInsets.all(8.0),
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
+              // mainAxisAlignment: MainAxisAlignment.center,
               children: [
+                Image.asset("assets/images/register1.png", height: 300),
+
                 SizedBox(height: 64),
 
                 TextField(
@@ -24,6 +27,7 @@ class Register extends StatelessWidget {
                   obscureText: false,
                   decoration: decorationTextField.copyWith(
                     hintText: "Enter Your username",
+                    prefixIcon: Icon(Icons.person),
                   ),
                 ),
 
@@ -34,6 +38,7 @@ class Register extends StatelessWidget {
                   obscureText: false,
                   decoration: decorationTextField.copyWith(
                     hintText: "Enter Your Email",
+                    prefixIcon: Icon(Icons.email),
                   ),
                 ),
 
@@ -44,13 +49,23 @@ class Register extends StatelessWidget {
                   obscureText: true,
                   decoration: decorationTextField.copyWith(
                     hintText: "Enter Your Password",
+                    prefixIcon: Icon(Icons.lock),
+                    suffixIcon: IconButton(
+                      onPressed: () {},
+                      icon: Icon(Icons.visibility_off),
+                    ),
                   ),
                 ),
 
                 SizedBox(height: 33),
 
                 ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Login()),
+                    );
+                  },
                   style: ButtonStyle(
                     backgroundColor: MaterialStateProperty.all(BTNgreen),
 

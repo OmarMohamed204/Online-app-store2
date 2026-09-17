@@ -1,3 +1,4 @@
+import 'package:loginpages/l10n/app_localizations.dart';
 import 'package:loginpages/pages/pay_confirm.dart';
 import 'package:loginpages/provider/cart.dart';
 import 'package:loginpages/shared/appBar.dart';
@@ -62,11 +63,13 @@ class _CheckOutState extends State<CheckOut> {
   Widget build(BuildContext context) {
     final value = Provider.of<Cart>(context);
 
+    final l10n = AppLocalizations.of(context)!;
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: appbarGreen,
         title: Text(
-          "Check Out",
+          l10n.checkOut,
           style: TextStyle(
             color: Colors.white,
             fontSize: 27,
@@ -79,7 +82,7 @@ class _CheckOutState extends State<CheckOut> {
 
       body: value.selectedItems.isEmpty
           ? Center(
-              child: Text("No Items Added !!", style: TextStyle(fontSize: 22)),
+              child: Text(l10n.noItemsAdded, style: TextStyle(fontSize: 22)),
             )
           : SingleChildScrollView(
               child: Column(
@@ -88,7 +91,7 @@ class _CheckOutState extends State<CheckOut> {
 
                   Center(
                     child: Text(
-                      "Total Added Items { ${value.selectedItems.length} }",
+                      "${l10n.totalAddedItems} { ${value.selectedItems.length} }",
                       style: TextStyle(fontSize: 22, color: Colors.deepPurple),
                     ),
                   ),
@@ -166,12 +169,12 @@ class _CheckOutState extends State<CheckOut> {
                   // =========================
                   // CUSTOMER INFORMATION
                   // =========================
-                  const Align(
-                    alignment: Alignment.centerLeft,
+                  Align(
+                    alignment: AlignmentDirectional.centerStart,
                     child: Padding(
                       padding: EdgeInsets.all(8.0),
                       child: Text(
-                        "Customer Information",
+                        l10n.customerInformation,
                         style: TextStyle(
                           fontSize: 22,
                           fontWeight: FontWeight.bold,
@@ -187,7 +190,7 @@ class _CheckOutState extends State<CheckOut> {
                     child: TextField(
                       controller: nameController,
                       decoration: InputDecoration(
-                        labelText: "Full Name",
+                        labelText: l10n.fullName,
                         prefixIcon: const Icon(Icons.person),
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(10),
@@ -202,7 +205,7 @@ class _CheckOutState extends State<CheckOut> {
                       controller: phoneController,
                       keyboardType: TextInputType.phone,
                       decoration: InputDecoration(
-                        labelText: "Phone Number",
+                        labelText: l10n.phoneNumber,
                         prefixIcon: const Icon(Icons.phone),
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(10),
@@ -217,7 +220,7 @@ class _CheckOutState extends State<CheckOut> {
                       controller: addressController,
                       maxLines: 3,
                       decoration: InputDecoration(
-                        labelText: "Delivery Address",
+                        labelText: l10n.deliveryAddress,
                         prefixIcon: const Icon(Icons.location_on),
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(10),
@@ -232,11 +235,11 @@ class _CheckOutState extends State<CheckOut> {
                   // PAYMENT METHOD
                   // =========================
                   Padding(
-                    padding: const EdgeInsets.only(left: 8.0),
-                    child: const Align(
-                      alignment: Alignment.centerLeft,
+                    padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                    child: Align(
+                      alignment: AlignmentDirectional.centerStart,
                       child: Text(
-                        "Payment Method",
+                        l10n.paymentMethod,
                         style: TextStyle(
                           fontSize: 22,
                           fontWeight: FontWeight.bold,
@@ -251,7 +254,7 @@ class _CheckOutState extends State<CheckOut> {
                     value: "Cash on Delivery",
                     // ignore: deprecated_member_use
                     groupValue: paymentMethod,
-                    title: const Text("Cash on Delivery"),
+                    title: Text(l10n.cashOnDelivery),
                     secondary: const Icon(Icons.money),
                     // ignore: deprecated_member_use
                     onChanged: (value) {
@@ -265,7 +268,7 @@ class _CheckOutState extends State<CheckOut> {
                     value: "online payment",
                     // ignore: deprecated_member_use
                     groupValue: paymentMethod,
-                    title: const Text("Visa / Mastercard"),
+                    title: Text(l10n.visaMastercard),
                     secondary: const Icon(Icons.credit_card),
                     // ignore: deprecated_member_use
                     onChanged: (value) {
@@ -292,8 +295,8 @@ class _CheckOutState extends State<CheckOut> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
 
                       children: [
-                        const Text(
-                          "Total",
+                        Text(
+                          l10n.total,
                           style: TextStyle(
                             fontSize: 22,
                             fontWeight: FontWeight.bold,
@@ -330,8 +333,8 @@ class _CheckOutState extends State<CheckOut> {
                       ),
                       child: Text(
                         paymentMethod == "Cash on Delivery"
-                            ? "place order"
-                            : "Continue to payment",
+                            ? l10n.placeOrder
+                            : l10n.continueToPayment,
                         style: const TextStyle(
                           fontSize: 19,
                           color: Colors.white,

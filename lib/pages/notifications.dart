@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:loginpages/l10n/app_localizations.dart';
 import 'package:loginpages/provider/cart.dart';
 import 'package:loginpages/provider/favorites.dart';
 import 'package:loginpages/model/notification.dart';
@@ -8,10 +9,11 @@ class Notifications extends StatelessWidget {
   const Notifications({super.key});
 
   @override
-
   Widget build(BuildContext context) {
     final cart = Provider.of<Cart>(context);
     final favorites = Provider.of<Favorites>(context);
+
+    final l10n = AppLocalizations.of(context)!;
 
     List<NotificationModel> allNotifications = [
       ...cart.notifications_add,
@@ -20,8 +22,8 @@ class Notifications extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text(
-          "Notifications",
+        title: Text(
+          l10n.notifications,
           style: TextStyle(
             color: Colors.white,
             fontSize: 25,
@@ -32,11 +34,8 @@ class Notifications extends StatelessWidget {
       ),
 
       body: allNotifications.isEmpty
-          ? const Center(
-              child: Text(
-                "No Notifications!!",
-                style: TextStyle(fontSize: 30),
-              ),
+          ? Center(
+              child: Text(l10n.noNotifications, style: TextStyle(fontSize: 30)),
             )
           : Column(
               children: [
@@ -104,8 +103,8 @@ class Notifications extends StatelessWidget {
                       // color: Colors.grey,
                       borderRadius: BorderRadius.circular(15),
                     ),
-                    child: const Text(
-                      "Clear all",
+                    child: Text(
+                      l10n.clearAll,
                       style: TextStyle(fontSize: 22),
                     ),
                   ),

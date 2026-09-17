@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:loginpages/l10n/app_localizations.dart';
 import 'package:loginpages/model/cars.dart';
 import 'package:loginpages/shared/appBar.dart';
 
@@ -18,12 +19,14 @@ class _DetailsState extends State<Details2> {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
+
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Color.fromARGB(255, 76, 141, 95),
         title: Text(
-          "details Screen",
+          l10n.detailsScreen,
           style: TextStyle(
             color: Colors.white,
             fontSize: 27,
@@ -59,7 +62,7 @@ class _DetailsState extends State<Details2> {
                     borderRadius: BorderRadius.circular(4),
                   ),
                   child: Text(
-                    "New",
+                    l10n.newItem,
                     style: TextStyle(
                       color: Colors.black,
                       fontWeight: FontWeight.bold,
@@ -106,7 +109,7 @@ class _DetailsState extends State<Details2> {
             SizedBox(
               width: double.infinity,
               child: Text(
-                "  Details: ",
+                l10n.details,
                 style: TextStyle(fontSize: 22),
                 textAlign: TextAlign.start,
               ),
@@ -115,7 +118,7 @@ class _DetailsState extends State<Details2> {
             Container(
               margin: EdgeInsets.all(12),
               child: Text(
-                "Global Specifications: Browse extensive make and model databases on the Cars & Automakers Database for engine options and history.Local Car Prices: View official daily updates and local market rates in Egypt through ContactCars.Used Car Listings: Search local used vehicle models and dealer locations via Hatla2ee Egypt.Are you looking for details on a specific car brand or model, or do you need help finding local prices and specs in Egypt?",
+                l10n.carDetails,
                 style: TextStyle(fontSize: 20),
                 maxLines: isShowMore ? 3 : null,
                 overflow: TextOverflow.fade,
@@ -129,7 +132,7 @@ class _DetailsState extends State<Details2> {
                 });
               },
               child: Text(
-                isShowMore ? "Show more" : "Show less",
+                isShowMore ? l10n.showMore : l10n.showLess,
                 style: TextStyle(
                   fontSize: 18,
                   color: Colors.deepPurple,

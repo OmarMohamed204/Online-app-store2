@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:loginpages/pages/home.dart';
 import 'package:loginpages/pages/profile.dart';
+import 'package:loginpages/pages/register.dart';
+import 'package:loginpages/shared/colors.dart';
 
 // import 'package:flutter_svg/flutter_svg.dart';
 
@@ -15,10 +17,10 @@ class _SplashPageState extends State<SplashPage> {
   @override
   void initState() {
     super.initState();
-    Future.delayed(Duration(seconds: 1), () {
+    Future.delayed(Duration(seconds: 2), () {
       // ignore: use_build_context_synchronously
       Navigator.push(context, MaterialPageRoute(
-        builder: (context) => Home()));
+        builder: (context) => Register()));
     });
   }
 
@@ -26,17 +28,13 @@ class _SplashPageState extends State<SplashPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        decoration: BoxDecoration(color: Colors.green),
+        decoration: BoxDecoration(color: BTNgreen),
         child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Icon(Icons.waving_hand, color: Colors.orange, size: 40),
 
-              Text(
-                "    Welcome to\nOnline App Store",
-                style: TextStyle(color: Colors.white, fontSize: 40),
-              ),
+              Image.asset("assets/images/splash.png", height: 829,),
             ],
           ),
         ),

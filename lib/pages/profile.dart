@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:loginpages/l10n/app_localizations.dart';
 import 'package:loginpages/pages/edit_profile.dart';
 
 class Profile extends StatefulWidget {
@@ -14,10 +15,12 @@ class _ProfileState extends State<Profile> {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
+
     return Scaffold(
       appBar: AppBar(
-        title: const Text(
-          "Profile",
+        title: Text(
+          l10n.profile,
           style: TextStyle(
             color: Colors.white,
             fontSize: 25,
@@ -64,7 +67,7 @@ class _ProfileState extends State<Profile> {
                 }
               },
               icon: const Icon(Icons.edit),
-              label: const Text("Edit Profile"),
+              label: Text(l10n.editProfile),
             ),
           ],
         ),

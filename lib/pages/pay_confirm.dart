@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:loginpages/l10n/app_localizations.dart';
 import 'package:loginpages/model/cars.dart';
 import 'package:loginpages/provider/cart.dart';
 import 'dart:math';
@@ -26,10 +27,12 @@ class ConfirmPay extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
+    
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          "confirmation massage",
+          l10n.confirmationMessage,
           style: TextStyle(fontWeight: FontWeight.bold),
         ),
       ),
@@ -54,8 +57,8 @@ class ConfirmPay extends StatelessWidget {
 
                   const SizedBox(height: 20),
 
-                  const Text(
-                    "Order Confirmed!",
+                  Text(
+                    l10n.orderConfirmed,
                     style: TextStyle(
                       fontSize: 28,
                       fontWeight: FontWeight.bold,
@@ -66,28 +69,28 @@ class ConfirmPay extends StatelessWidget {
                   const SizedBox(height: 20),
 
                   Text(
-                    "Order Id ${generateOrderId()}",
+                    "${l10n.orderId} ${generateOrderId()}",
                     style: const TextStyle(fontSize: 18, color: Colors.orange),
                   ),
 
                   const SizedBox(height: 8),
 
                   Text(
-                    "Customer: $customerName",
+                    "${l10n.customer} $customerName",
                     style: const TextStyle(fontSize: 18, color: Colors.orange),
                   ),
 
                   const SizedBox(height: 8),
 
                   Text(
-                    "Phone: $phone",
+                    "${l10n.phone} $phone",
                     style: const TextStyle(fontSize: 18, color: Colors.orange),
                   ),
 
                   const SizedBox(height: 8),
 
                   Text(
-                    "Address: $address",
+                    "${l10n.address} $address",
                     textAlign: TextAlign.center,
                     style: const TextStyle(fontSize: 18, color: Colors.orange),
                   ),
@@ -95,7 +98,7 @@ class ConfirmPay extends StatelessWidget {
                   const SizedBox(height: 8),
 
                   Text(
-                    "Payment: $paymentMethod",
+                    "${l10n.payment} $paymentMethod",
                     style: const TextStyle(fontSize: 18, color: Colors.orange),
                   ),
 
@@ -104,7 +107,7 @@ class ConfirmPay extends StatelessWidget {
                   Consumer<Cart>(
                     builder: (context, value, child) {
                       return Text(
-                        "Price \$ ${value.pricee}",
+                        "${l10n.price} \$ ${value.pricee}",
                         style: TextStyle(color: Colors.orange, fontSize: 18),
                       );
                     },
@@ -112,8 +115,8 @@ class ConfirmPay extends StatelessWidget {
 
                   const SizedBox(height: 25.0),
 
-                  const Text(
-                    "Your order has been confirmed.\nYou Will receive a confirmation SMS.",
+                  Text(
+                    l10n.orderConfirmationText,
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       fontSize: 18,

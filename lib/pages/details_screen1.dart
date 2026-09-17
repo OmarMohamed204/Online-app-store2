@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:loginpages/l10n/app_localizations.dart';
 import 'package:loginpages/model/flowers.dart';
 import 'package:loginpages/shared/appBar.dart';
 
@@ -18,21 +19,21 @@ class _DetailsState extends State<Details1> {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
+
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Color.fromARGB(255, 76, 141, 95),
         title: Text(
-          "details Screen",
+          l10n.detailsScreen,
           style: TextStyle(
             color: Colors.white,
             fontSize: 27,
             fontWeight: FontWeight.bold,
           ),
         ),
-        actions: [
-          ProductAndPrice()
-        ],
+        actions: [ProductAndPrice()],
       ),
 
       body: SingleChildScrollView(
@@ -59,7 +60,7 @@ class _DetailsState extends State<Details1> {
                     borderRadius: BorderRadius.circular(4),
                   ),
                   child: Text(
-                    "New",
+                    l10n.newItem,
                     style: TextStyle(
                       color: Colors.black,
                       fontWeight: FontWeight.bold,
@@ -106,7 +107,7 @@ class _DetailsState extends State<Details1> {
             SizedBox(
               width: double.infinity,
               child: Text(
-                "  Details: ",
+                l10n.details,
                 style: TextStyle(fontSize: 22),
                 textAlign: TextAlign.start,
               ),
@@ -115,7 +116,7 @@ class _DetailsState extends State<Details1> {
             Container(
               margin: EdgeInsets.all(12),
               child: Text(
-                "Sepals: The outer green parts that protect the bud before it opens (Britannica Flower).Petals: The bright, colored parts that attract bees and other pollinators (Britannica Flower).Stamens: The male parts that make pollen (Britannica Flower). Each has a filament and an anther.Carpels (Pistil): The female part in the center (Britannica Flower). It holds the ovules that turn into seeds after fertilization (Britannica Flower).",
+                l10n.flowerDetails,
                 style: TextStyle(fontSize: 20),
                 maxLines: isShowMore ? 3 : null,
                 overflow: TextOverflow.fade,
@@ -129,7 +130,7 @@ class _DetailsState extends State<Details1> {
                 });
               },
               child: Text(
-                isShowMore ? "Show more" : "Show less",
+                isShowMore ? l10n.showMore : l10n.showLess,
                 style: TextStyle(
                   fontSize: 18,
                   color: Colors.deepPurple,

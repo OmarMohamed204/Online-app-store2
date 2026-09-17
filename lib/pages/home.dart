@@ -1,13 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:loginpages/l10n/app_localizations.dart';
 import 'package:loginpages/model/cars.dart';
 import 'package:loginpages/model/flowers.dart';
 import 'package:loginpages/model/shirts.dart';
+import 'package:loginpages/pages/about.dart';
 import 'package:loginpages/pages/checkout.dart';
+import 'package:loginpages/pages/contactUs.dart';
 import 'package:loginpages/pages/details_screen1.dart';
 import 'package:loginpages/pages/details_screen2.dart';
 import 'package:loginpages/pages/details_screen3.dart';
 import 'package:loginpages/pages/favorite_items.dart';
 import 'package:loginpages/pages/profile.dart';
+import 'package:loginpages/pages/register.dart';
+import 'package:loginpages/pages/settings.dart';
 import 'package:loginpages/provider/cart.dart';
 import 'package:loginpages/provider/favorites.dart';
 import 'package:loginpages/provider/theme.dart';
@@ -30,6 +35,8 @@ class _HomeState extends State<Home> {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
+
     return DefaultTabController(
       length: 3,
       child: SafeArea(
@@ -60,7 +67,7 @@ class _HomeState extends State<Home> {
                 ),
 
                 ListTile(
-                  title: Text("Home"),
+                  title: Text(l10n.home),
                   leading: Icon(Icons.home),
                   onTap: () {
                     Navigator.push(
@@ -71,7 +78,7 @@ class _HomeState extends State<Home> {
                 ),
 
                 ListTile(
-                  title: Text("profile"),
+                  title: Text(l10n.profile),
                   leading: Icon(Icons.person),
                   onTap: () {
                     Navigator.push(
@@ -82,7 +89,7 @@ class _HomeState extends State<Home> {
                 ),
 
                 ListTile(
-                  title: Text("My Products"),
+                  title: Text(l10n.myProducts),
                   leading: Icon(Icons.add_shopping_cart),
                   onTap: () {
                     Navigator.push(
@@ -93,13 +100,7 @@ class _HomeState extends State<Home> {
                 ),
 
                 ListTile(
-                  title: Text("About"),
-                  leading: Icon(Icons.help_center),
-                  onTap: () {},
-                ),
-
-                ListTile(
-                  title: Text("Favorits"),
+                  title: Text(l10n.favorites),
                   leading: Icon(Icons.favorite),
                   onTap: () {
                     Navigator.push(
@@ -110,7 +111,7 @@ class _HomeState extends State<Home> {
                 ),
 
                 ListTile(
-                  title: Text("Dark Mode"),
+                  title: Text(l10n.darkMode),
                   leading: Icon(Icons.dark_mode),
                   trailing: Consumer<ThemeProvider>(
                     builder: (context, val, child) {
@@ -129,19 +130,54 @@ class _HomeState extends State<Home> {
                 ),
 
                 ListTile(
-                  title: Text("Logout"),
+                  title: Text(l10n.aboutUs),
+                  leading: Icon(Icons.help_center),
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => About()),
+                    );
+                  },
+                ),
+
+                ListTile(
+                  title: Text(l10n.contactUs),
+                  leading: Icon(Icons.phone),
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => ContactUs()),
+                    );
+                  },
+                ),
+
+                ListTile(
+                  title: Text(l10n.settings),
+                  leading: Icon(Icons.settings),
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Settings()),
+                    );
+                  },
+                ),
+
+                ListTile(
+                  title: Text(l10n.logout),
                   leading: Icon(Icons.exit_to_app),
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Register()),
+                    );
+                  },
                 ),
 
                 Spacer(),
 
                 Container(
                   padding: EdgeInsets.only(bottom: 14),
-                  child: Text(
-                    "Developed by Omar Mohamed © 2026",
-                    style: TextStyle(fontSize: 16),
-                  ),
+                  child: Text(l10n.developedBy, style: TextStyle(fontSize: 16)),
                 ),
               ],
             ),
@@ -163,7 +199,7 @@ class _HomeState extends State<Home> {
                     size: 30,
                     color: Colors.deepOrange,
                   ),
-                  text: "Cars",
+                  text: l10n.cars,
                 ),
                 Tab(
                   iconMargin: EdgeInsets.all(5),
@@ -172,18 +208,18 @@ class _HomeState extends State<Home> {
                     size: 30,
                     color: const Color.fromARGB(255, 46, 3, 133),
                   ),
-                  text: "T-Shirts",
+                  text: l10n.tShirts,
                 ),
                 Tab(
                   iconMargin: EdgeInsets.all(5),
                   icon: Icon(Icons.local_florist, size: 30, color: Colors.pink),
-                  text: "flowers",
+                  text: l10n.flowers,
                 ),
               ],
             ),
             backgroundColor: Color.fromARGB(255, 76, 141, 95),
             title: Text(
-              "Home",
+              l10n.home,
               style: TextStyle(
                 color: Colors.white,
                 fontSize: 27,
@@ -195,17 +231,17 @@ class _HomeState extends State<Home> {
 
           body: Column(
             children: [
-              SizedBox(height: 7,),
-              
+              SizedBox(height: 7),
+
               Padding(
                 padding: EdgeInsets.all(8.0),
                 child: SizedBox(
                   height: 60,
                   child: TextField(
                     controller: searchController,
-                    
+
                     decoration: InputDecoration(
-                      hintText: "Search for a product...",
+                      hintText: l10n.searchProduct,
                       prefix: Icon(Icons.search),
                       suffix: IconButton(
                         onPressed: () {
@@ -305,14 +341,14 @@ class _HomeState extends State<Home> {
                                                     ).showSnackBar(
                                                       SnackBar(
                                                         content: Text(
-                                                          "Item added from favorite",
+                                                          l10n.favoriteAdded,
                                                           style: TextStyle(
                                                             color: Colors.red,
                                                             fontSize: 18,
                                                           ),
                                                         ),
                                                         action: SnackBarAction(
-                                                          label: "Cancel",
+                                                          label: l10n.cancel,
                                                           onPressed: () {
                                                             value.removeFavorite(
                                                               filteredCars[index],
@@ -330,14 +366,14 @@ class _HomeState extends State<Home> {
                                                     ).showSnackBar(
                                                       SnackBar(
                                                         content: Text(
-                                                          "Item removed from favorite",
+                                                          l10n.favoriteRemoved,
                                                           style: TextStyle(
                                                             color: Colors.red,
                                                             fontSize: 18,
                                                           ),
                                                         ),
                                                         action: SnackBarAction(
-                                                          label: "Cancel",
+                                                          label: l10n.cancel,
                                                           onPressed: () {
                                                             value.addFavorite(
                                                               filteredCars[index],
@@ -390,7 +426,7 @@ class _HomeState extends State<Home> {
                                               ).showSnackBar(
                                                 SnackBar(
                                                   content: Text(
-                                                    "Car addeed to card ✅",
+                                                    l10n.carAdded,
                                                     style: TextStyle(
                                                       color: Colors.blue,
                                                       fontSize: 18,
@@ -398,7 +434,7 @@ class _HomeState extends State<Home> {
                                                   ),
 
                                                   action: SnackBarAction(
-                                                    label: "Undo",
+                                                    label: l10n.undo,
                                                     onPressed: () {
                                                       value.remove(
                                                         filteredCars[index],
@@ -522,14 +558,14 @@ class _HomeState extends State<Home> {
                                                   ).showSnackBar(
                                                     SnackBar(
                                                       content: Text(
-                                                        "Item added from favorite",
+                                                        l10n.favoriteAdded,
                                                         style: TextStyle(
                                                           color: Colors.red,
                                                           fontSize: 18,
                                                         ),
                                                       ),
                                                       action: SnackBarAction(
-                                                        label: "Cancel",
+                                                        label: l10n.cancel,
                                                         onPressed: () {
                                                           value.removeFavorite(
                                                             filteredTshirts[index],
@@ -547,14 +583,14 @@ class _HomeState extends State<Home> {
                                                   ).showSnackBar(
                                                     SnackBar(
                                                       content: Text(
-                                                        "Item removed from favorite",
+                                                        l10n.favoriteRemoved,
                                                         style: TextStyle(
                                                           color: Colors.red,
                                                           fontSize: 18,
                                                         ),
                                                       ),
                                                       action: SnackBarAction(
-                                                        label: "Cancel",
+                                                        label: l10n.cancel,
                                                         onPressed: () {
                                                           value.addFavorite(
                                                             filteredTshirts[index],
@@ -603,14 +639,14 @@ class _HomeState extends State<Home> {
                                             ).showSnackBar(
                                               SnackBar(
                                                 content: Text(
-                                                  "T-Shirt added to card ✅",
+                                                  l10n.tShirtAdded,
                                                   style: TextStyle(
                                                     color: Colors.blue,
                                                     fontSize: 18,
                                                   ),
                                                 ),
                                                 action: SnackBarAction(
-                                                  label: "Undo",
+                                                  label: l10n.undo,
                                                   onPressed: () {
                                                     value.remove(
                                                       filteredTshirts[index],
@@ -732,14 +768,14 @@ class _HomeState extends State<Home> {
                                                   ).showSnackBar(
                                                     SnackBar(
                                                       content: Text(
-                                                        "Item added from favorite",
+                                                        l10n.favoriteAdded,
                                                         style: TextStyle(
                                                           color: Colors.red,
                                                           fontSize: 18,
                                                         ),
                                                       ),
                                                       action: SnackBarAction(
-                                                        label: "Cancel",
+                                                        label: l10n.cancel,
                                                         onPressed: () {
                                                           value.removeFavorite(
                                                             filteredFlowers[index],
@@ -757,14 +793,14 @@ class _HomeState extends State<Home> {
                                                   ).showSnackBar(
                                                     SnackBar(
                                                       content: Text(
-                                                        "Item removed from favorite",
+                                                        l10n.favoriteRemoved,
                                                         style: TextStyle(
                                                           color: Colors.red,
                                                           fontSize: 18,
                                                         ),
                                                       ),
                                                       action: SnackBarAction(
-                                                        label: "Cancel",
+                                                        label: l10n.cancel,
                                                         onPressed: () {
                                                           value.addFavorite(
                                                             filteredFlowers[index],
@@ -813,14 +849,14 @@ class _HomeState extends State<Home> {
                                             ).showSnackBar(
                                               SnackBar(
                                                 content: Text(
-                                                  "Flower addeed to card ✅",
+                                                  l10n.flowerAdded,
                                                   style: TextStyle(
                                                     color: Colors.blue,
                                                     fontSize: 18,
                                                   ),
                                                 ),
                                                 action: SnackBarAction(
-                                                  label: "Undo",
+                                                  label: l10n.undo,
                                                   onPressed: () {
                                                     value.remove(
                                                       filteredFlowers[index],

@@ -1,4 +1,7 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
+import 'package:loginpages/l10n/app_localizations.dart';
 
 class EditProfile extends StatefulWidget {
   final String name;
@@ -31,10 +34,12 @@ class _EditProfileState extends State<EditProfile> {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
+
     return Scaffold(
       appBar: AppBar(
-        title: const Text(
-          "Edit Profile",
+        title: Text(
+          l10n.editProfile,
           style: TextStyle(
             color: Colors.white,
             fontSize: 25,
@@ -50,8 +55,8 @@ class _EditProfileState extends State<EditProfile> {
           children: [
             TextField(
               controller: nameController,
-              decoration: const InputDecoration(
-                labelText: "Name",
+              decoration: InputDecoration(
+                labelText: l10n.name,
                 prefix: Icon(Icons.person),
                 border: OutlineInputBorder(),
               ),
@@ -62,7 +67,7 @@ class _EditProfileState extends State<EditProfile> {
             TextField(
               controller: emailController,
               decoration: InputDecoration(
-                labelText: "Email",
+                labelText: l10n.email,
                 prefix: Icon(Icons.email),
                 border: OutlineInputBorder(),
               ),
@@ -78,7 +83,7 @@ class _EditProfileState extends State<EditProfile> {
                 });
               },
               icon: const Icon(Icons.save),
-              label: const Text("Save"),
+              label: Text(l10n.save),
             ),
           ],
         ),

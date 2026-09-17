@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:loginpages/l10n/app_localizations.dart';
 import 'package:loginpages/provider/cart.dart';
 import 'package:loginpages/provider/favorites.dart';
 import 'package:loginpages/shared/appBar.dart';
@@ -10,9 +11,11 @@ class FavoriteItems extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
+
     return Scaffold(
       appBar: AppBar(
-        title: Text("Favorites", style: TextStyle(color: Colors.white)),
+        title: Text(l10n.favorites, style: TextStyle(color: Colors.white)),
         backgroundColor: appbarGreen,
         actions: [ProductAndPrice()],
       ),
@@ -21,7 +24,7 @@ class FavoriteItems extends StatelessWidget {
           if (value.favoriteItems.isEmpty) {
             return Center(
               child: Text(
-                "No Favorites Yet!! ❤️",
+                l10n.noFavoritesYet,
                 style: TextStyle(fontSize: 22),
               ),
             );
@@ -32,7 +35,7 @@ class FavoriteItems extends StatelessWidget {
               SizedBox(height: 10),
               Center(
                 child: Text(
-                  "Total Favorite Items { ${value.favoriteItems.length} }",
+                  "${l10n.totalFavoriteItems} { ${value.favoriteItems.length} }",
                   style: TextStyle(fontSize: 22, color: Colors.deepPurple),
                 ),
               ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:loginpages/pages/home.dart';
 import 'package:loginpages/pages/register.dart';
 import 'package:loginpages/shared/colors.dart';
 import 'package:loginpages/shared/constant.dart';
@@ -15,15 +16,18 @@ class Login extends StatelessWidget {
           child: Padding(
             padding: const EdgeInsets.all(8.0),
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
+              // mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                SizedBox(height: 64),
+                Image.asset("assets/images/login.png"),
+
+                SizedBox(height: 100),
 
                 TextField(
                   keyboardType: TextInputType.emailAddress,
                   obscureText: false,
                   decoration: decorationTextField.copyWith(
                     hintText: "Enter Your Email",
+                    prefixIcon: Icon(Icons.person),
                   ),
                 ),
 
@@ -34,13 +38,23 @@ class Login extends StatelessWidget {
                   obscureText: true,
                   decoration: decorationTextField.copyWith(
                     hintText: "Enter Your Password",
+                    prefixIcon: Icon(Icons.lock),
+                    suffixIcon: IconButton(
+                      onPressed: () {},
+                      icon: Icon(Icons.visibility_off),
+                    ),
                   ),
                 ),
 
                 SizedBox(height: 33),
 
                 ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Home()),
+                    );
+                  },
                   style: ButtonStyle(
                     backgroundColor: MaterialStateProperty.all(BTNgreen),
 
@@ -68,7 +82,9 @@ class Login extends StatelessWidget {
                       onPressed: () {
                         Navigator.pushReplacement(
                           context,
-                          MaterialPageRoute(builder: (context) => const Register()),
+                          MaterialPageRoute(
+                            builder: (context) => const Register(),
+                          ),
                         );
                       },
                       child: Text(
