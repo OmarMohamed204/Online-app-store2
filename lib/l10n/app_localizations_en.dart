@@ -271,4 +271,31 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get orderConfirmationText =>
       'Your order has been confirmed.\nYou Will receive a confirmation SMS.';
+
+  @override
+  String get pleaseCompleteYou => 'Please complete all you information';
+
+  @override
+  String get enterUsername => 'Enter Your Username';
+
+  @override
+  String get enterEmail => 'Enter Your Email';
+
+  @override
+  String get enterPassword => 'Enter Your Password';
+
+  @override
+  String get register => 'Register';
+
+  @override
+  String get haveAccount => 'Do you have an account?';
+
+  @override
+  String get signIn => 'Sign in';
+
+  @override
+  String get noAccount => 'Don\'t have an account?';
+
+  @override
+  String get signUp => 'Sign Up';
 }

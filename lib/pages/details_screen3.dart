@@ -52,7 +52,7 @@ class _DetailsState extends State<Details3> {
             Row(
               children: [
                 Container(
-                  margin: EdgeInsets.only(left: 10),
+                  margin: EdgeInsets.symmetric(horizontal: 10),
                   padding: EdgeInsets.all(5),
                   decoration: BoxDecoration(
                     color: const Color.fromARGB(255, 251, 115, 115),

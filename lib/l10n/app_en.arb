@@ -81,9 +81,17 @@
   "orderConfirmed": "Order Confirmed!",
   "orderId": "Order ID",
   "customer": "Customer",
-  "phone": "Phone",
   "address": "Address",
   "payment": "Payment",
   "price": "Price",
-  "orderConfirmationText": "Your order has been confirmed.\nYou Will receive a confirmation SMS."
+  "orderConfirmationText": "Your order has been confirmed.\nYou Will receive a confirmation SMS.",
+  "pleaseCompleteYou": "Please complete all you information",
+  "enterUsername": "Enter Your Username",
+  "enterEmail": "Enter Your Email",
+  "enterPassword": "Enter Your Password",
+  "register": "Register",
+  "haveAccount": "Do you have an account?",
+  "signIn": "Sign in",
+  "noAccount": "Don't have an account?",
+  "signUp": "Sign Up"
 }

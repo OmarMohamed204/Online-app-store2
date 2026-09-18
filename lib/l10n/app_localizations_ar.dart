@@ -105,7 +105,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get arabic => 'العربية';
 
   @override
-  String get onlineStore => 'متجري الإلكتروني';
+  String get onlineStore => 'المتجر الإلكتروني';
 
   @override
   String get version => 'الإصدار 1.0.0';
@@ -137,7 +137,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get developedByOmar =>
-      'المتجر الإلكتروني\nتم التطوير بواسطة عمر محمد 2026 ©';
+      '© 2026 المتجر الإلكتروني\nتم التطوير بواسطة عمر محمد';
 
   @override
   String get editProfile => 'تعديل الملف الشخصي';
@@ -180,7 +180,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get flowerDetails =>
-      'السبلات: هي الأجزاء الخضراء الخارجية التي تحمي البرعم قبل أن يتفتح (بريتانيكا للزهور). البتلات: هي الأجزاء الملونة التي تجذب النحل والملقحات الأخرى (بريتانيكا للزهور). الأسدية: هي الأجزاء الذكرية التي تنتج حبوب اللقاح (بريتانيكا للزهور). تحتوي كل سداة على خيط ومتَك. الكرابل (المدقة): هي الجزء الأنثوي الموجود في المنتصف (بريتانيكا للزهور). وتحتوي على البويضات التي تتحول إلى بذور بعد الإخصاب (بريتانيكا للزهور).';
+      'السبلات: هي الأجزاء الخضراء الخارجية التي تحمي البرعم قبل أن يتفتح. البتلات: هي الأجزاء الملونة التي تجذب النحل والملقحات الأخرى. الأسدية: هي الأجزاء الذكرية التي تنتج حبوب اللقاح. تحتوي كل سداة على خيط ومتَك. الكرابل (المدقة): هي الجزء الأنثوي الموجود في المنتصف، وتحتوي على البويضات التي تتحول إلى بذور بعد الإخصاب.';
 
   @override
   String get showMore => 'عرض المزيد';
@@ -190,11 +190,11 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get carDetails =>
-      'المواصفات العالمية: تصفح قواعد بيانات واسعة لمختلف أنواع وموديلات السيارات لمعرفة خيارات المحرك وتاريخ السيارة. أسعار السيارات المحلية: يمكنك الاطلاع على التحديثات اليومية الرسمية وأسعار السوق المحلي في مصر. السيارات المستعملة: ابحث عن موديلات السيارات المستعملة ومواقع التجار في مصر. هل تبحث عن تفاصيل حول ماركة أو موديل سيارة معين، أم تحتاج إلى مساعدة في معرفة الأسعار والمواصفات المحلية في مصر؟';
+      'المواصفات العامة: يمكنك استعراض قواعد بيانات واسعة لماركات وموديلات السيارات لمعرفة خيارات المحرك وتاريخ السيارة. أسعار السيارات المحلية: يمكنك الاطلاع على التحديثات اليومية والأسعار المحلية في مصر. السيارات المستعملة: يمكنك البحث عن موديلات السيارات المستعملة ومواقع التجار. هل تبحث عن تفاصيل حول ماركة أو موديل سيارة معين؟';
 
   @override
   String get shirtDetails =>
-      'الياقة: هي الجزء المحيط بالرقبة، ومن أنواعها الياقة المدببة والواسعة وياقة الأزرار والياقة المفتوحة. الأساور: هي نهاية الكم، ويمكن تثبيتها بالأزرار أو الطي للخلف مثل الأساور الفرنسية. الظهر العلوي: هو جزء القماش الموجود عند الكتفين ويساعد القميص على أخذ شكل مناسب. فتحة الأزرار: هي الشريط المقوى من القماش الذي توجد عليه الأزرار وفتحات الأزرار في مقدمة القميص. الحافة السفلية: هي الحافة النهائية للقميص، ويمكن ارتداء القميص مدسوسًا داخل البنطلون أو خارجه.';
+      'الياقة: الجزء المحيط بالرقبة، ومن أنواعها الياقة المدببة والواسعة وياقة الأزرار والياقة الكاجوال. الأساور: نهاية الكم، ويمكن تثبيتها بالأزرار أو الطيات. اليوك: قطعة القماش الموجودة على الكتفين والتي تساعد على ملاءمة القميص بشكل أفضل. فتحة الأزرار: شريط القماش المقوى الذي توضع عليه الأزرار وفتحاتها في مقدمة القميص. الحاشية: الحافة السفلية النهائية للقميص، ويمكن إدخالها داخل البنطال أو تركها خارجه.';
 
   @override
   String get noNotifications => 'لا توجد إشعارات!!';
@@ -203,10 +203,10 @@ class AppLocalizationsAr extends AppLocalizations {
   String get clearAll => 'مسح الكل';
 
   @override
-  String get checkOut => 'الدفع';
+  String get checkOut => 'إتمام الشراء';
 
   @override
-  String get noItemsAdded => 'لم تتم إضافة أي عناصر !!';
+  String get noItemsAdded => 'لم تتم إضافة أي عناصر!!';
 
   @override
   String get totalAddedItems => 'إجمالي العناصر المضافة';
@@ -215,7 +215,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get customerInformation => 'معلومات العميل';
 
   @override
-  String get fullName => 'الاسم بالكامل';
+  String get fullName => 'الاسم الكامل';
 
   @override
   String get phoneNumber => 'رقم الهاتف';
@@ -239,16 +239,16 @@ class AppLocalizationsAr extends AppLocalizations {
   String get placeOrder => 'تأكيد الطلب';
 
   @override
-  String get continueToPayment => 'المتابعة للدفع';
+  String get continueToPayment => 'المتابعة إلى الدفع';
 
   @override
-  String get completeInformation => 'من فضلك أكمل جميع بياناتك';
+  String get completeInformation => 'يرجى إكمال جميع بياناتك';
 
   @override
-  String get validPhoneNumber => 'من فضلك أدخل رقم هاتف صحيح';
+  String get validPhoneNumber => 'يرجى إدخال رقم هاتف صحيح';
 
   @override
-  String get confirmationMessage => 'رسالة تأكيد';
+  String get confirmationMessage => 'رسالة التأكيد';
 
   @override
   String get orderConfirmed => 'تم تأكيد الطلب!';
@@ -263,12 +263,39 @@ class AppLocalizationsAr extends AppLocalizations {
   String get address => 'العنوان';
 
   @override
-  String get payment => 'طريقة الدفع';
+  String get payment => 'الدفع';
 
   @override
   String get price => 'السعر';
 
   @override
   String get orderConfirmationText =>
-      'تم تأكيد طلبك.\nستصلك رسالة SMS لتأكيد الطلب.';
+      'تم تأكيد طلبك بنجاح.\nستصلك رسالة SMS للتأكيد.';
+
+  @override
+  String get pleaseCompleteYou => 'يرجى إكمال جميع بياناتك';
+
+  @override
+  String get enterUsername => 'أدخل اسم المستخدم';
+
+  @override
+  String get enterEmail => 'أدخل بريدك الإلكتروني';
+
+  @override
+  String get enterPassword => 'أدخل كلمة المرور';
+
+  @override
+  String get register => 'إنشاء حساب';
+
+  @override
+  String get haveAccount => 'هل لديك حساب؟';
+
+  @override
+  String get signIn => 'تسجيل الدخول';
+
+  @override
+  String get noAccount => 'ليس لديك حساب؟';
+
+  @override
+  String get signUp => 'إنشاء حساب';
 }

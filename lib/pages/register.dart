@@ -9,6 +9,8 @@ class Register extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
+
     return SafeArea(
       child: Scaffold(
         backgroundColor: Color.fromARGB(255, 247, 247, 247),
@@ -26,7 +28,7 @@ class Register extends StatelessWidget {
                   keyboardType: TextInputType.text,
                   obscureText: false,
                   decoration: decorationTextField.copyWith(
-                    hintText: "Enter Your username",
+                    hintText: l10n.enterUsername,
                     prefixIcon: Icon(Icons.person),
                   ),
                 ),
@@ -37,7 +39,7 @@ class Register extends StatelessWidget {
                   keyboardType: TextInputType.emailAddress,
                   obscureText: false,
                   decoration: decorationTextField.copyWith(
-                    hintText: "Enter Your Email",
+                    hintText: l10n.enterEmail,
                     prefixIcon: Icon(Icons.email),
                   ),
                 ),
@@ -48,7 +50,7 @@ class Register extends StatelessWidget {
                   keyboardType: TextInputType.text,
                   obscureText: true,
                   decoration: decorationTextField.copyWith(
-                    hintText: "Enter Your Password",
+                    hintText: l10n.enterPassword,
                     prefixIcon: Icon(Icons.lock),
                     suffixIcon: IconButton(
                       onPressed: () {},
@@ -78,8 +80,8 @@ class Register extends StatelessWidget {
                     ),
                   ),
                   child: Text(
-                    "Register",
-                    style: TextStyle(color: Colors.white),
+                    l10n.register,
+                    style: TextStyle(color: Colors.white, fontSize: 18),
                   ),
                 ),
 
@@ -89,8 +91,8 @@ class Register extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
-                      "Do you have an account?",
-                      style: TextStyle(fontSize: 18),
+                      l10n.haveAccount,
+                      style: TextStyle(fontSize: 18, color: Colors.black),
                     ),
                     TextButton(
                       onPressed: () {
@@ -102,7 +104,7 @@ class Register extends StatelessWidget {
                         );
                       },
                       child: Text(
-                        "Sign in",
+                        l10n.signIn,
                         style: TextStyle(
                           color: Colors.black,
                           fontSize: 18,

@@ -30,7 +30,7 @@ class AppLocalizationsTr extends AppLocalizations {
   String get aboutUs => 'Hakkımızda';
 
   @override
-  String get contactUs => 'İletişim';
+  String get contactUs => 'Bize Ulaşın';
 
   @override
   String get settings => 'Ayarlar';
@@ -90,7 +90,7 @@ class AppLocalizationsTr extends AppLocalizations {
   String get account => 'Hesap';
 
   @override
-  String get changePassword => 'Şifreyi Değiştir';
+  String get changePassword => 'Şifre Değiştir';
 
   @override
   String get language => 'Dil';
@@ -118,7 +118,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get aboutDescription =>
-      'Welcome to Online Store 🛍️\n\nOur goal is to make online shopping simple, convenient, and enjoyable. Explore a variety of products in one place, from fashion and clothing to cars and beautiful flowers.\n\nWe are always working to improve your shopping experience and make it easier to discover products you love.';
+      'Online Mağaza\'ya hoş geldiniz 🛍️\n\nAmacımız online alışverişi basit, rahat ve keyifli hale getirmektir. Moda ve giyimden arabalara ve güzel çiçeklere kadar çeşitli ürünleri tek bir yerde keşfedin.\n\nAlışveriş deneyiminizi geliştirmek ve sevdiğiniz ürünleri keşfetmenizi kolaylaştırmak için sürekli çalışıyoruz.';
 
   @override
   String get whatYouCanFind => 'Neler Bulabilirsiniz?';
@@ -137,7 +137,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get developedByOmar =>
-      '© 2026 Online Store\nDeveloped by Omar Mohamed';
+      '© 2026 Online Mağaza\nOmar Mohamed tarafından geliştirildi';
 
   @override
   String get editProfile => 'Profili Düzenle';
@@ -180,95 +180,122 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get flowerDetails =>
-      'Sepals: The outer green parts that protect the bud before it opens (Britannica Flower). Petals: The bright, colored parts that attract bees and other pollinators (Britannica Flower). Stamens: The male parts that make pollen (Britannica Flower). Each has a filament and an anther. Carpels (Pistil): The female part in the center (Britannica Flower). It holds the ovules that turn into seeds after fertilization (Britannica Flower).';
+      'Çanak yapraklar: Açılmadan önce tomurcuğu koruyan dış yeşil kısımlardır. Taç yapraklar: Arıları ve diğer tozlaştırıcıları çeken renkli kısımlardır. Erkek organlar: Polen üreten erkek kısımlardır. Her birinde sapçık ve başçık bulunur. Dişi organ: Çiçeğin ortasında bulunan dişi kısımdır ve döllenmeden sonra tohuma dönüşen tohum taslaklarını içerir.';
 
   @override
-  String get showMore => 'Daha Fazla Göster';
+  String get showMore => 'Daha fazla göster';
 
   @override
-  String get showLess => 'Daha Az Göster';
+  String get showLess => 'Daha az göster';
 
   @override
   String get carDetails =>
-      'Global Specifications: Browse extensive make and model databases on the Cars & Automakers Database for engine options and history. Local Car Prices: View official daily updates and local market rates in Egypt through ContactCars. Used Car Listings: Search local used vehicle models and dealer locations via Hatla2ee Egypt. Are you looking for details on a specific car brand or model, or do you need help finding local prices and specs in Egypt?';
+      'Genel Özellikler: Motor seçenekleri ve araç geçmişi hakkında bilgi almak için geniş marka ve model veritabanlarını inceleyebilirsiniz. Yerel Araç Fiyatları: Mısır\'daki günlük güncellemeleri ve yerel piyasa fiyatlarını görüntüleyebilirsiniz. İkinci El Araç İlanları: Kullanılmış araç modellerini ve bayi konumlarını arayabilirsiniz. Belirli bir otomobil markası veya modeli hakkında detay mı arıyorsunuz?';
 
   @override
   String get shirtDetails =>
-      'Collar: The band around the neck. Common types include point, spread, button-down, and camp collars. Cuffs: The end of the sleeve, which can be buttoned, snapped, or folded back as French cuffs. Yoke: The panel of fabric across the shoulders that helps the shirt fit smoothly. Placket (Button Stand): The reinforced strip of fabric where the buttons and buttonholes are placed down the front. Hem: The finished bottom edge of the shirt, designed to be tucked in or left untucked.';
+      'Yaka: Boynun etrafındaki kısımdır. Yaygın türleri sivri yaka, geniş yaka, düğmeli yaka ve kamp yakadır. Manşet: Kolun ucudur ve düğmeli, çıtçıtlı veya Fransız manşeti gibi katlanmış olabilir. Roba: Omuzların üzerindeki ve gömleğin daha iyi oturmasını sağlayan kumaş parçasıdır. Pat: Gömleğin ön kısmında düğmelerin ve iliklerin bulunduğu güçlendirilmiş kumaş şerididir. Etek: Gömleğin içeri sokulabilen veya dışarıda bırakılabilen alt kenarıdır.';
 
   @override
-  String get noNotifications => 'No Notifications!!';
+  String get noNotifications => 'Bildirim Yok!!';
 
   @override
-  String get clearAll => 'Clear all';
+  String get clearAll => 'Tümünü Temizle';
 
   @override
-  String get checkOut => 'Check Out';
+  String get checkOut => 'Sepeti Onayla';
 
   @override
-  String get noItemsAdded => 'No Items Added !!';
+  String get noItemsAdded => 'Henüz Ürün Eklenmedi!!';
 
   @override
-  String get totalAddedItems => 'Total Added Items';
+  String get totalAddedItems => 'Toplam Eklenen Ürün';
 
   @override
-  String get customerInformation => 'Customer Information';
+  String get customerInformation => 'Müşteri Bilgileri';
 
   @override
-  String get fullName => 'Full Name';
+  String get fullName => 'Ad Soyad';
 
   @override
-  String get phoneNumber => 'Phone Number';
+  String get phoneNumber => 'Telefon Numarası';
 
   @override
-  String get deliveryAddress => 'Delivery Address';
+  String get deliveryAddress => 'Teslimat Adresi';
 
   @override
-  String get paymentMethod => 'Payment Method';
+  String get paymentMethod => 'Ödeme Yöntemi';
 
   @override
-  String get cashOnDelivery => 'Cash on Delivery';
+  String get cashOnDelivery => 'Kapıda Ödeme';
 
   @override
   String get visaMastercard => 'Visa / Mastercard';
 
   @override
-  String get total => 'Total';
+  String get total => 'Toplam';
 
   @override
-  String get placeOrder => 'Place Order';
+  String get placeOrder => 'Sipariş Ver';
 
   @override
-  String get continueToPayment => 'Continue to payment';
+  String get continueToPayment => 'Ödemeye Devam Et';
 
   @override
-  String get completeInformation => 'Please complete all your information';
+  String get completeInformation => 'Lütfen tüm bilgilerinizi tamamlayın';
 
   @override
-  String get validPhoneNumber => 'Please enter a valid phone number';
+  String get validPhoneNumber => 'Lütfen geçerli bir telefon numarası girin';
 
   @override
-  String get confirmationMessage => 'Confirmation Message';
+  String get confirmationMessage => 'Onay Mesajı';
 
   @override
-  String get orderConfirmed => 'Order Confirmed!';
+  String get orderConfirmed => 'Sipariş Onaylandı!';
 
   @override
-  String get orderId => 'Order ID';
+  String get orderId => 'Sipariş Numarası';
 
   @override
-  String get customer => 'Customer';
+  String get customer => 'Müşteri';
 
   @override
-  String get address => 'Address';
+  String get address => 'Adres';
 
   @override
-  String get payment => 'Payment';
+  String get payment => 'Ödeme';
 
   @override
-  String get price => 'Price';
+  String get price => 'Fiyat';
 
   @override
   String get orderConfirmationText =>
-      'Your order has been confirmed.\nYou Will receive a confirmation SMS.';
+      'Siparişiniz onaylandı.\nOnay SMS\'i alacaksınız.';
+
+  @override
+  String get pleaseCompleteYou => 'Lütfen tüm bilgilerinizi tamamlayın';
+
+  @override
+  String get enterUsername => 'Kullanıcı adınızı girin';
+
+  @override
+  String get enterEmail => 'E-posta adresinizi girin';
+
+  @override
+  String get enterPassword => 'Şifrenizi girin';
+
+  @override
+  String get register => 'Kayıt Ol';
+
+  @override
+  String get haveAccount => 'Bir hesabınız var mı?';
+
+  @override
+  String get signIn => 'Giriş Yap';
+
+  @override
+  String get noAccount => 'Hesabınız yok mu?';
+
+  @override
+  String get signUp => 'Kayıt Ol';
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:loginpages/l10n/app_localizations.dart';
 import 'package:loginpages/pages/home.dart';
 import 'package:loginpages/pages/register.dart';
 import 'package:loginpages/shared/colors.dart';
@@ -9,6 +10,8 @@ class Login extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
+
     return SafeArea(
       child: Scaffold(
         backgroundColor: Color.fromARGB(255, 247, 247, 247),
@@ -26,7 +29,7 @@ class Login extends StatelessWidget {
                   keyboardType: TextInputType.emailAddress,
                   obscureText: false,
                   decoration: decorationTextField.copyWith(
-                    hintText: "Enter Your Email",
+                    hintText: l10n.enterEmail,
                     prefixIcon: Icon(Icons.person),
                   ),
                 ),
@@ -37,7 +40,7 @@ class Login extends StatelessWidget {
                   keyboardType: TextInputType.text,
                   obscureText: true,
                   decoration: decorationTextField.copyWith(
-                    hintText: "Enter Your Password",
+                    hintText: l10n.enterPassword,
                     prefixIcon: Icon(Icons.lock),
                     suffixIcon: IconButton(
                       onPressed: () {},
@@ -66,7 +69,7 @@ class Login extends StatelessWidget {
                       ),
                     ),
                   ),
-                  child: Text("Sign in", style: TextStyle(color: Colors.white)),
+                  child: Text(l10n.signIn, style: TextStyle(color: Colors.white, fontSize: 18)),
                 ),
 
                 SizedBox(height: 33),
@@ -75,8 +78,8 @@ class Login extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
-                      "Don't have an account?",
-                      style: TextStyle(fontSize: 18),
+                      l10n.noAccount,
+                      style: TextStyle(fontSize: 18, color: Colors.black),
                     ),
                     TextButton(
                       onPressed: () {
@@ -88,7 +91,7 @@ class Login extends StatelessWidget {
                         );
                       },
                       child: Text(
-                        "Sign Up",
+                        l10n.signUp,
                         style: TextStyle(
                           color: Colors.black,
                           fontSize: 18,
