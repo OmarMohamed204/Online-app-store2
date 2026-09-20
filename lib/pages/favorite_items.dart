@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:loginpages/l10n/app_localizations.dart';
-import 'package:loginpages/provider/cart.dart';
 import 'package:loginpages/provider/favorites.dart';
 import 'package:loginpages/shared/appBar.dart';
 import 'package:loginpages/shared/colors.dart';
@@ -19,6 +18,15 @@ class FavoriteItems extends StatelessWidget {
         backgroundColor: appbarGreen,
         actions: [ProductAndPrice()],
       ),
+      
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.pop(context);
+        },
+
+        child: Icon(Icons.home),
+      ),
+
       body: Consumer<Favorites>(
         builder: (context, value, child) {
           if (value.favoriteItems.isEmpty) {
@@ -39,7 +47,9 @@ class FavoriteItems extends StatelessWidget {
                   style: TextStyle(fontSize: 22, color: Colors.deepPurple),
                 ),
               ),
+
               SizedBox(height: 20),
+
               Expanded(
                 child: ListView.builder(
                   itemCount: value.favoriteItems.length,
@@ -47,14 +57,17 @@ class FavoriteItems extends StatelessWidget {
                     return Card(
                       child: ListTile(
                         title: Text(value.favoriteItems[index].name),
+
                         subtitle: Text(
                           "\$ ${value.favoriteItems[index].price} - ${value.favoriteItems[index].location}",
                         ),
+
                         leading: CircleAvatar(
                           backgroundImage: AssetImage(
                             value.favoriteItems[index].imgPath,
                           ),
                         ),
+                        
                         trailing: IconButton(
                           onPressed: () {
                             value.removeFavorite(value.favoriteItems[index]);

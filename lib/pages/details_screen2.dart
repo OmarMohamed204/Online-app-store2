@@ -54,18 +54,20 @@ class _DetailsState extends State<Details2> {
 
             Row(
               children: [
-                Container(
-                  margin: EdgeInsets.only(left: 10),
-                  padding: EdgeInsets.all(5),
-                  decoration: BoxDecoration(
-                    color: const Color.fromARGB(255, 251, 115, 115),
-                    borderRadius: BorderRadius.circular(4),
-                  ),
-                  child: Text(
-                    l10n.newItem,
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontWeight: FontWeight.bold,
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Container(
+                    padding: EdgeInsets.all(5),
+                    decoration: BoxDecoration(
+                      color: const Color.fromARGB(255, 251, 115, 115),
+                      borderRadius: BorderRadius.circular(4),
+                    ),
+                    child: Text(
+                      l10n.newItem,
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                   ),
                 ),
@@ -104,14 +106,17 @@ class _DetailsState extends State<Details2> {
               ],
             ),
 
-            SizedBox(height: 16),
+            SizedBox(height: 8.0),
 
             SizedBox(
               width: double.infinity,
-              child: Text(
-                l10n.details,
-                style: TextStyle(fontSize: 22),
-                textAlign: TextAlign.start,
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(
+                  l10n.details,
+                  style: TextStyle(fontSize: 22),
+                  textAlign: TextAlign.start,
+                ),
               ),
             ),
 

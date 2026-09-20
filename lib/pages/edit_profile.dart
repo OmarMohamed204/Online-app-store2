@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:loginpages/l10n/app_localizations.dart';
+import 'package:loginpages/pages/home.dart';
 
 class EditProfile extends StatefulWidget {
   final String name;
@@ -20,6 +21,7 @@ class _EditProfileState extends State<EditProfile> {
   @override
   void initState() {
     super.initState();
+
     nameController = TextEditingController(text: widget.name);
 
     emailController = TextEditingController(text: widget.email);
@@ -47,6 +49,14 @@ class _EditProfileState extends State<EditProfile> {
           ),
         ),
         backgroundColor: const Color.fromARGB(255, 76, 141, 95),
+      ),
+
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.push(context, MaterialPageRoute(builder: (context) => Home()));
+        },
+
+        child: Icon(Icons.home),
       ),
 
       body: Padding(

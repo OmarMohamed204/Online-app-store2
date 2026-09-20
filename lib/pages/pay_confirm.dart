@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:loginpages/l10n/app_localizations.dart';
 import 'package:loginpages/model/cars.dart';
+import 'package:loginpages/pages/home.dart';
 import 'package:loginpages/provider/cart.dart';
 import 'dart:math';
 
@@ -30,13 +31,22 @@ class ConfirmPay extends StatelessWidget {
     final l10n = AppLocalizations.of(context)!;
     
     return Scaffold(
+      backgroundColor: Colors.grey.shade300,
+
       appBar: AppBar(
         title: Text(
           l10n.confirmationMessage,
           style: TextStyle(fontWeight: FontWeight.bold),
         ),
       ),
-      backgroundColor: Colors.grey.shade300,
+
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.push(context, MaterialPageRoute(builder: (context) => Home()));
+        },
+
+        child: Icon(Icons.home),
+      ),
 
       body: Center(
         child: SingleChildScrollView(

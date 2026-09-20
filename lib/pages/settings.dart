@@ -13,7 +13,7 @@ class Settings extends StatefulWidget {
 }
 
 class _SettingsState extends State<Settings> {
-  bool notifications = true;
+  bool notifications = false;
 
   @override
   Widget build(BuildContext context) {
@@ -34,6 +34,14 @@ class _SettingsState extends State<Settings> {
         actions: [ProductAndPrice()],
       ),
 
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.pop(context);
+        },
+
+        child: Icon(Icons.home),
+      ),
+
       body: ListView(
         padding: const EdgeInsets.all(15),
 
@@ -48,10 +56,10 @@ class _SettingsState extends State<Settings> {
           Card(
             child: Column(
               children: [
+
                 // =========================
                 // DARK MODE
                 // =========================
-
                 ListTile(
                   title: Text(l10n.darkMode),
                   subtitle: Text(l10n.changeAppAppearance),
@@ -109,10 +117,10 @@ class _SettingsState extends State<Settings> {
           Card(
             child: Column(
               children: [
+
                 // =========================
                 // CHANGE PASSWORD
                 // =========================
-
                 ListTile(
                   leading: Icon(Icons.lock),
                   title: Text(l10n.changePassword),
@@ -149,6 +157,7 @@ class _SettingsState extends State<Settings> {
                           content: Column(
                             mainAxisSize: MainAxisSize.min,
                             children: [
+
                               // English
                               ListTile(
                                 leading: const Text(

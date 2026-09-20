@@ -30,6 +30,14 @@ class _ProfileState extends State<Profile> {
         backgroundColor: const Color.fromARGB(255, 76, 141, 95),
       ),
 
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.pop(context);
+        },
+
+        child: Icon(Icons.home),
+      ),
+
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -56,7 +64,9 @@ class _ProfileState extends State<Profile> {
               onPressed: () async {
                 final result = await Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => EditProfile(name: name, email: email,)),
+                  MaterialPageRoute(
+                    builder: (context) => EditProfile(name: name, email: email),
+                  ),
                 );
 
                 if (result != null) {

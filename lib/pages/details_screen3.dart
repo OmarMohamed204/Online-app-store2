@@ -51,18 +51,20 @@ class _DetailsState extends State<Details3> {
 
             Row(
               children: [
-                Container(
-                  margin: EdgeInsets.symmetric(horizontal: 10),
-                  padding: EdgeInsets.all(5),
-                  decoration: BoxDecoration(
-                    color: const Color.fromARGB(255, 251, 115, 115),
-                    borderRadius: BorderRadius.circular(4),
-                  ),
-                  child: Text(
-                    l10n.newItem,
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontWeight: FontWeight.bold,
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Container(
+                    padding: EdgeInsets.all(5),
+                    decoration: BoxDecoration(
+                      color: const Color.fromARGB(255, 251, 115, 115),
+                      borderRadius: BorderRadius.circular(4),
+                    ),
+                    child: Text(
+                      l10n.newItem,
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                   ),
                 ),
@@ -85,13 +87,14 @@ class _DetailsState extends State<Details3> {
                   children: [
                     Icon(Icons.edit_location),
 
-                    SizedBox(width: 10),
-
-                    Text(
-                      " ${widget.product_shirts.location}",
-                      style: TextStyle(
-                        fontSize: 19,
-                        fontWeight: FontWeight.bold,
+                    Padding(
+                      padding: const EdgeInsets.only(left: 8.0),
+                      child: Text(
+                        " ${widget.product_shirts.location}",
+                        style: TextStyle(
+                          fontSize: 19,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                     ),
 
@@ -101,14 +104,17 @@ class _DetailsState extends State<Details3> {
               ],
             ),
 
-            SizedBox(height: 16),
+            SizedBox(height: 8.0),
 
-            SizedBox(
-              width: double.infinity,
-              child: Text(
-                l10n.details,
-                style: TextStyle(fontSize: 22),
-                textAlign: TextAlign.start,
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: SizedBox(
+                width: double.infinity,
+                child: Text(
+                  l10n.details,
+                  style: TextStyle(fontSize: 22),
+                  textAlign: TextAlign.start,
+                ),
               ),
             ),
 

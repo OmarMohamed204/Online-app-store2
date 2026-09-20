@@ -33,6 +33,14 @@ class Notifications extends StatelessWidget {
         backgroundColor: const Color.fromARGB(255, 76, 141, 95),
       ),
 
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.pop(context);
+        },
+
+        child: Icon(Icons.home),
+      ),
+
       body: allNotifications.isEmpty
           ? Center(
               child: Text(l10n.noNotifications, style: TextStyle(fontSize: 30)),
@@ -103,10 +111,7 @@ class Notifications extends StatelessWidget {
                       // color: Colors.grey,
                       borderRadius: BorderRadius.circular(15),
                     ),
-                    child: Text(
-                      l10n.clearAll,
-                      style: TextStyle(fontSize: 22),
-                    ),
+                    child: Text(l10n.clearAll, style: TextStyle(fontSize: 22)),
                   ),
                 ),
 

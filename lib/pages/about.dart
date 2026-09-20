@@ -8,19 +8,27 @@ class About extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
-    
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Color.fromARGB(255, 76, 141, 95),
         title: Text(
-              l10n.aboutUs,
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 27,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            actions: [ProductAndPrice()],
+          l10n.aboutUs,
+          style: TextStyle(
+            color: Colors.white,
+            fontSize: 27,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        actions: [ProductAndPrice()],
+      ),
+
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.pop(context);
+        },
+
+        child: Icon(Icons.home),
       ),
 
       body: SingleChildScrollView(
@@ -28,7 +36,6 @@ class About extends StatelessWidget {
 
         child: Column(
           children: [
-
             // Logo
             Container(
               height: 110,
@@ -60,10 +67,7 @@ class About extends StatelessWidget {
 
             Text(
               l10n.shopMoreSaveMore,
-              style: TextStyle(
-                fontSize: 16,
-                color: Colors.grey,
-              ),
+              style: TextStyle(fontSize: 16, color: Colors.grey),
             ),
 
             const SizedBox(height: 30),
@@ -73,10 +77,7 @@ class About extends StatelessWidget {
               alignment: AlignmentDirectional.centerStart,
               child: Text(
                 l10n.aboutOnlineStore,
-                style: TextStyle(
-                  fontSize: 22,
-                  fontWeight: FontWeight.bold,
-                ),
+                style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
               ),
             ),
 
@@ -98,10 +99,7 @@ class About extends StatelessWidget {
               alignment: AlignmentDirectional.centerStart,
               child: Text(
                 l10n.whatYouCanFind,
-                style: TextStyle(
-                  fontSize: 22,
-                  fontWeight: FontWeight.bold,
-                ),
+                style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
               ),
             ),
 
@@ -161,32 +159,18 @@ class About extends StatelessWidget {
   }) {
     return Card(
       margin: const EdgeInsets.only(bottom: 12),
-      elevation: 2,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(15),
-      ),
+      elevation: 5,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
       child: ListTile(
-        contentPadding: const EdgeInsets.symmetric(
-          horizontal: 16,
-          vertical: 8,
-        ),
+        contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
 
         leading: CircleAvatar(
           radius: 25,
-          backgroundColor:
-              const Color.fromARGB(255, 76, 141, 95),
-          child: Icon(
-            icon,
-            color: Colors.white,
-          ),
+          backgroundColor: const Color.fromARGB(255, 76, 141, 95),
+          child: Icon(icon, color: Colors.white),
         ),
 
-        title: Text(
-          title,
-          style: const TextStyle(
-            fontWeight: FontWeight.bold,
-          ),
-        ),
+        title: Text(title, style: const TextStyle(fontWeight: FontWeight.bold)),
 
         subtitle: Text(subtitle),
       ),

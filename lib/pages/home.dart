@@ -469,6 +469,7 @@ class _HomeState extends State<Home> {
                                       ),
                                     ],
                                   ),
+                                  
                                   leading: Text(
                                     "\$ ${filteredCars[index].price}",
                                     style: TextStyle(

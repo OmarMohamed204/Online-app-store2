@@ -23,6 +23,14 @@ class ContactUs extends StatelessWidget {
         actions: [ProductAndPrice()],
       ),
 
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.pop(context);
+        },
+
+        child: Icon(Icons.home),
+      ),
+
       body: Padding(
         padding: const EdgeInsets.all(20),
 
