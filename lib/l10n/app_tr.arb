@@ -93,5 +93,6 @@
   "haveAccount": "Bir hesabınız var mı?",
   "signIn": "Giriş Yap",
   "noAccount": "Hesabınız yok mu?",
-  "signUp": "Kayıt Ol"
+  "signUp": "Kayıt Ol",
+  "questionToLogout": "Çıkış yapmak istediğinizden emin misiniz?"
 }

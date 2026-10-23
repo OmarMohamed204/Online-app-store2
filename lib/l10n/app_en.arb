@@ -89,9 +89,10 @@
   "enterUsername": "Enter Your Username",
   "enterEmail": "Enter Your Email",
   "enterPassword": "Enter Your Password",
-  "register": "Register",
+  "register": "Create new account",
   "haveAccount": "Do you have an account?",
-  "signIn": "Sign in",
+  "signIn": "Log in",
   "noAccount": "Don't have an account?",
-  "signUp": "Sign Up"
+  "signUp": "Sign Up",
+  "questionToLogout": "Are you sure you want to log out?"
 }

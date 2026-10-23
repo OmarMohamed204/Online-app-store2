@@ -285,17 +285,20 @@ class AppLocalizationsEn extends AppLocalizations {
   String get enterPassword => 'Enter Your Password';
 
   @override
-  String get register => 'Register';
+  String get register => 'Create new account';
 
   @override
   String get haveAccount => 'Do you have an account?';
 
   @override
-  String get signIn => 'Sign in';
+  String get signIn => 'Log in';
 
   @override
   String get noAccount => 'Don\'t have an account?';
 
   @override
   String get signUp => 'Sign Up';
+
+  @override
+  String get questionToLogout => 'Are you sure you want to log out?';
 }

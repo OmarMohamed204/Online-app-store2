@@ -89,9 +89,10 @@
   "enterUsername": "أدخل اسم المستخدم",
   "enterEmail": "أدخل بريدك الإلكتروني",
   "enterPassword": "أدخل كلمة المرور",
-  "register": "إنشاء حساب",
+  "register": "إنشاء حساب جديد",
   "haveAccount": "هل لديك حساب؟",
   "signIn": "تسجيل الدخول",
   "noAccount": "ليس لديك حساب؟",
-  "signUp": "إنشاء حساب"
+  "signUp": "إنشاء حساب",
+  "questionToLogout": "هل أنت متأكد أنك تريد تسجيل الخروج؟"
 }

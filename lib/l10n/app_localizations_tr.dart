@@ -298,4 +298,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get signUp => 'Kayıt Ol';
+
+  @override
+  String get questionToLogout => 'Çıkış yapmak istediğinizden emin misiniz?';
 }

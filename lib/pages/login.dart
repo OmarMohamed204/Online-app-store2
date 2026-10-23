@@ -4,9 +4,48 @@ import 'package:loginpages/pages/home.dart';
 import 'package:loginpages/pages/register.dart';
 import 'package:loginpages/shared/colors.dart';
 import 'package:loginpages/shared/constant.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
-class Login extends StatelessWidget {
+class Login extends StatefulWidget {
   const Login({super.key});
+
+  @override
+  State<Login> createState() => _LoginState();
+}
+
+class _LoginState extends State<Login> {
+  final emailController = TextEditingController();
+  final passwordController = TextEditingController();
+
+  bool isPasswordHidden = true;
+
+  void dispose() {
+    emailController.dispose();
+    passwordController.dispose();
+    super.dispose();
+  }
+
+  Future<void> loginUser() async {
+    try {
+      await FirebaseAuth.instance.signInWithEmailAndPassword(
+        email: emailController.text.trim(),
+        password: passwordController.text.trim(),
+      );
+
+      if (!mounted) return;
+
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => Home()),
+      );
+    } on FirebaseAuthException catch (e) {
+      if (!mounted) return;
+
+      ScaffoldMessenger.of(
+        context,
+      ).showSnackBar(SnackBar(content: Text(e.message ?? 'Login failed')));
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -26,6 +65,7 @@ class Login extends StatelessWidget {
                 SizedBox(height: 100),
 
                 TextField(
+                  controller: emailController,
                   keyboardType: TextInputType.emailAddress,
                   obscureText: false,
                   decoration: decorationTextField.copyWith(
@@ -37,14 +77,23 @@ class Login extends StatelessWidget {
                 SizedBox(height: 33),
 
                 TextField(
+                  controller: passwordController,
                   keyboardType: TextInputType.text,
-                  obscureText: true,
+                  obscureText: isPasswordHidden,
                   decoration: decorationTextField.copyWith(
                     hintText: l10n.enterPassword,
                     prefixIcon: Icon(Icons.lock),
                     suffixIcon: IconButton(
-                      onPressed: () {},
-                      icon: Icon(Icons.visibility_off),
+                      onPressed: () {
+                        setState(() {
+                          isPasswordHidden = !isPasswordHidden;
+                        });
+                      },
+                      icon: Icon(
+                        isPasswordHidden
+                            ? Icons.visibility_off
+                            : Icons.visibility,
+                      ),
                     ),
                   ),
                 ),
@@ -52,12 +101,7 @@ class Login extends StatelessWidget {
                 SizedBox(height: 33),
 
                 ElevatedButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => Home()),
-                    );
-                  },
+                  onPressed: loginUser,
                   style: ButtonStyle(
                     backgroundColor: MaterialStateProperty.all(BTNgreen),
 
@@ -69,7 +113,10 @@ class Login extends StatelessWidget {
                       ),
                     ),
                   ),
-                  child: Text(l10n.signIn, style: TextStyle(color: Colors.white, fontSize: 18)),
+                  child: Text(
+                    l10n.signIn,
+                    style: TextStyle(color: Colors.white, fontSize: 18),
+                  ),
                 ),
 
                 SizedBox(height: 33),

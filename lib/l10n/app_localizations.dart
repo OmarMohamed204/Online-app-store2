@@ -643,7 +643,7 @@ abstract class AppLocalizations {
   /// No description provided for @register.
   ///
   /// In en, this message translates to:
-  /// **'Register'**
+  /// **'Create new account'**
   String get register;
 
   /// No description provided for @haveAccount.
@@ -655,7 +655,7 @@ abstract class AppLocalizations {
   /// No description provided for @signIn.
   ///
   /// In en, this message translates to:
-  /// **'Sign in'**
+  /// **'Log in'**
   String get signIn;
 
   /// No description provided for @noAccount.
@@ -669,6 +669,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Sign Up'**
   String get signUp;
+
+  /// No description provided for @questionToLogout.
+  ///
+  /// In en, this message translates to:
+  /// **'Are you sure you want to log out?'**
+  String get questionToLogout;
 }
 
 class _AppLocalizationsDelegate

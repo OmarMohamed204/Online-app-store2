@@ -285,7 +285,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get enterPassword => 'أدخل كلمة المرور';
 
   @override
-  String get register => 'إنشاء حساب';
+  String get register => 'إنشاء حساب جديد';
 
   @override
   String get haveAccount => 'هل لديك حساب؟';
@@ -298,4 +298,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get signUp => 'إنشاء حساب';
+
+  @override
+  String get questionToLogout => 'هل أنت متأكد أنك تريد تسجيل الخروج؟';
 }

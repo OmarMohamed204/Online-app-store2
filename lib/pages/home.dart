@@ -10,6 +10,7 @@ import 'package:loginpages/pages/details_screen1.dart';
 import 'package:loginpages/pages/details_screen2.dart';
 import 'package:loginpages/pages/details_screen3.dart';
 import 'package:loginpages/pages/favorite_items.dart';
+import 'package:loginpages/pages/login.dart';
 import 'package:loginpages/pages/profile.dart';
 import 'package:loginpages/pages/register.dart';
 import 'package:loginpages/pages/settings.dart';
@@ -18,6 +19,7 @@ import 'package:loginpages/provider/favorites.dart';
 import 'package:loginpages/provider/theme.dart';
 import 'package:loginpages/shared/appBar.dart';
 import 'package:provider/provider.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -166,9 +168,39 @@ class _HomeState extends State<Home> {
                   title: Text(l10n.logout),
                   leading: Icon(Icons.exit_to_app),
                   onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => Register()),
+                    showDialog(
+                      context: context,
+                      builder: (context) => AlertDialog(
+                        title: Text(l10n.logout),
+                        content: Text(l10n.questionToLogout),
+
+                        actions: [
+                          TextButton(
+                            onPressed: () {
+                              Navigator.pop(context);
+                            },
+                            child: Text(l10n.cancel),
+                          ),
+
+                          TextButton(
+                            onPressed: () async {
+                              Navigator.pop(context);
+
+                              await FirebaseAuth.instance.signOut();
+
+                              if (!context.mounted) return;
+
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => Login(),
+                                ),
+                              );
+                            },
+                            child: Text(l10n.logout),
+                          ),
+                        ],
+                      ),
                     );
                   },
                 ),
@@ -469,7 +501,7 @@ class _HomeState extends State<Home> {
                                       ),
                                     ],
                                   ),
-                                  
+
                                   leading: Text(
                                     "\$ ${filteredCars[index].price}",
                                     style: TextStyle(

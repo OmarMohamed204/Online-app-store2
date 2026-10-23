@@ -1,3 +1,4 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:loginpages/l10n/app_localizations.dart';
@@ -10,10 +11,19 @@ import 'package:loginpages/provider/favorites.dart';
 import 'package:loginpages/provider/theme.dart';
 
 import 'package:provider/provider.dart';
+import 'package:loginpages/firebase_options.dart';
 
-void main() {
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+
   runApp(const OnlineStore());
 }
+
 
 class OnlineStore extends StatelessWidget {
   const OnlineStore({super.key});
@@ -38,19 +48,14 @@ class OnlineStore extends StatelessWidget {
             theme: ThemeData.light(),
             darkTheme: ThemeData.dark(),
 
-            themeMode:
-                themeValue.isDark ? ThemeMode.dark : ThemeMode.light,
+            themeMode: themeValue.isDark ? ThemeMode.dark : ThemeMode.light,
 
             // =========================
             // LANGUAGE
             // =========================
             locale: languageValue.locale,
 
-            supportedLocales: const [
-              Locale('en'),
-              Locale('ar'),
-              Locale("tr"),
-            ],
+            supportedLocales: const [Locale('en'), Locale('ar'), Locale("tr")],
 
             localizationsDelegates: const [
               AppLocalizations.delegate,
